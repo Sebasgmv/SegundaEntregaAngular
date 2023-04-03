@@ -1,0 +1,37 @@
+#Transmi1{
+  position: absolute;
+  width: 1328px;
+  height: 352px;
+  left: 150px;
+  top: 8px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 300px;
+  line-height: 352px;
+  /* identical to box height */
+
+
+  color: rgba(174, 245, 163, 0.4);
+
+}
+
+#Transmi2{
+
+  position: absolute;
+  width: 1328px;
+  height: 352px;
+  left: 150px;
+  top: 8px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 300px;
+  line-height: 352px;
+  /* identical to box height */
+
+
+  color: #AAF5A3;
+}
