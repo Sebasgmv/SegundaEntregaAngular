@@ -1,0 +1,11 @@
+<p>conductor-list works!</p>
+
+<div>
+  <ul>
+    <li *ngFor="let condu of cond; let i = index">
+      <a [routerLink]="['/person/view', person.id]">
+        {{i}} {{person.name}} {{selection[i]}}
+      </a>
+    </li>
+  </ul>
+</div>

@@ -63,7 +63,8 @@
               "browserTarget": "SegundaEntregaAngular:build:production"
             },
             "development": {
-              "browserTarget": "SegundaEntregaAngular:build:development"
+              "browserTarget": "SegundaEntregaAngular:build:development",
+              "port": 4201
             }
           },
           "defaultConfiguration": "development"
