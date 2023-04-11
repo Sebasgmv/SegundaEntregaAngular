@@ -1,1 +1,39 @@
 <p>conductor-edit works!</p>
+<h2>Conductor</h2>
+<p>{{conductor.nombre}}</p>
+<p>{{conductor.cedula}}</p>
+<p>{{conductor.telefono}}</p>
+<p>{{conductor.direccion}}</p>
+
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName">
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+
+  <label for="ssn">SSN: </label>
+  <input id="ssn" type="text" formControlName="ssn">
+
+  <div *ngIf="patientForm.controls.ssn.invalid && (patientForm.controls.ssn.dirty || patientForm.controls.ssn.touched)"
+       class="alert">
+
+    <div *ngIf="patientForm.controls.ssn.errors?.['required']">
+      SSN is required.
+    </div>
+    <div *ngIf="patientForm.controls.ssn.errors?.['minlength']">
+      SSN must be at least 4 characters long.
+    </div>
+    <div *ngIf="patientForm.controls.ssn.errors?.['pattern']">
+      SSN must be numeric
+    </div>
+  </div>
+
+  <label for="email">email: </label>
+  <input id="email" type="text" formControlName="email">
+
+  <button type="submit" [disabled]="!patientForm.valid">Submit</button>
+</form>
+
+<button (click)="savePerson()">Save</button>

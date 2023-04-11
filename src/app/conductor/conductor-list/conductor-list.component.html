@@ -1,11 +1,11 @@
 <p>conductor-list works!</p>
-
+<p>Hola</p>
 <div>
   <ul>
-    <li *ngFor="let condu of cond; let i = index">
-      <a [routerLink]="['/person/view', person.id]">
-        {{i}} {{person.name}} {{selection[i]}}
-      </a>
+    <li *ngFor="let conductor of conductores; let i = index">
+      {{i}} {{conductor.nombre}}
+      <button (click)="viewConductor(conductor)">Ver</button>
+      <button (click)="editConductor(conductor)">Editar</button>
     </li>
   </ul>
 </div>

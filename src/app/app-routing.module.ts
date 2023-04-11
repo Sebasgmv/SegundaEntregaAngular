@@ -10,9 +10,9 @@ import {ConductorCreateComponent} from "./conductor/conductor-create/conductor-c
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'conductor/list', component: ConductorListComponent },
-  { path: 'conductor/view', component: ConductorViewComponent },
+  { path: 'conductor/view/:id', component: ConductorViewComponent },
   { path: 'conductor/search', component: ConductorSearchComponent },
-  { path: 'conductor/edit', component: ConductorEditComponent },
+  { path: 'conductor/edit/:id', component: ConductorEditComponent },
   { path: 'conductor/create', component: ConductorCreateComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
 ];

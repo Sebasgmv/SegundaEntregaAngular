@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Conductor} from "../model/conductor";
 import {Observable} from "rxjs";
 
@@ -8,12 +8,22 @@ import {Observable} from "rxjs";
 })
 export class ConductorService {
   // http://localhost:8080/conductor/view/1
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json"
+    })
+  };
   constructor(private http: HttpClient) { }
 
-  listarPersonas(): Observable<Conductor[]> {
+  findAll(): Observable<Conductor[]> {
     return this.http.get<Conductor[]>("http://localhost:8080/conductor/list");
   }
   recuperarConductor(id: number): Observable<Conductor> {
     return this.http.get<Conductor>(`http://localhost:8080/conductor/view/${id}`);
+  }
+
+  save(conductor: Conductor): Observable<Conductor> {
+    return this.http.post<Conductor>(`http://localhost:8080/conductor`, conductor, this.httpOptions);
   }
 }
