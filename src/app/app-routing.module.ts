@@ -13,6 +13,12 @@ import {RutaViewComponent} from "./ruta/ruta-view/ruta-view.component";
 import {RutaEditComponent} from "./ruta/ruta-edit/ruta-edit.component";
 import {BusEditComponent} from "./bus/bus-edit/bus-edit.component";
 import {BusCreateComponent} from "./bus/bus-create/bus-create.component";
+import {RutaCreateComponent} from "./ruta/ruta-create/ruta-create.component";
+import {Estacion} from "./model/estacion";
+import {EstacionListComponent} from "./estacion/estacion-list/estacion-list.component";
+import {EstacionViewComponent} from "./estacion/estacion-view/estacion-view.component";
+import {EstacionEditComponent} from "./estacion/estacion-edit/estacion-edit.component";
+import {EstacionCreateComponent} from "./estacion/estacion-create/estacion-create.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,6 +34,11 @@ const routes: Routes = [
   { path: 'ruta/list', component: RutaListComponent },
   { path: 'ruta/view/:id', component: RutaViewComponent },
   { path: 'ruta/edit/:id', component: RutaEditComponent },
+  { path: 'ruta/create', component: RutaCreateComponent },
+  { path: 'estacion/list', component: EstacionListComponent },
+  { path: 'estacion/view/:id', component: EstacionViewComponent },
+  { path: 'estacion/edit/:id', component: EstacionEditComponent },
+  { path: 'estacion/create', component: EstacionCreateComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
 ];
 

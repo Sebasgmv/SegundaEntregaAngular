@@ -21,6 +21,18 @@ import { RutaSearchComponent } from './ruta/ruta-search/ruta-search.component';
 import { RutaViewComponent } from './ruta/ruta-view/ruta-view.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { EstacionCreateComponent } from './estacion/estacion-create/estacion-create.component';
+import { EstacionListComponent } from './estacion/estacion-list/estacion-list.component';
+import { EstacionViewComponent } from './estacion/estacion-view/estacion-view.component';
+import { EstacionEditComponent } from './estacion/estacion-edit/estacion-edit.component';
+import { HorarioCreateComponent } from './horario/horario-create/horario-create.component';
+import { HorarioEditComponent } from './horario/horario-edit/horario-edit.component';
+import { HorarioListComponent } from './horario/horario-list/horario-list.component';
+import { HorarioViewComponent } from './horario/horario-view/horario-view.component';
+import { TrabajoCreateComponent } from './trabajo/trabajo-create/trabajo-create.component';
+import { TrabajoEditComponent } from './trabajo/trabajo-edit/trabajo-edit.component';
+import { TrabajoListComponent } from './trabajo/trabajo-list/trabajo-list.component';
+import { TrabajoViewComponent } from './trabajo/trabajo-view/trabajo-view.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +53,18 @@ import {ReactiveFormsModule} from "@angular/forms";
     RutaListComponent,
     RutaSearchComponent,
     RutaViewComponent,
+    EstacionCreateComponent,
+    EstacionListComponent,
+    EstacionViewComponent,
+    EstacionEditComponent,
+    HorarioCreateComponent,
+    HorarioEditComponent,
+    HorarioListComponent,
+    HorarioViewComponent,
+    TrabajoCreateComponent,
+    TrabajoEditComponent,
+    TrabajoListComponent,
+    TrabajoViewComponent,
   ],
     imports: [
         BrowserModule,

@@ -3,7 +3,7 @@ export class Ruta {
   public placa?: string | null;
   public modelo?: string | null;
 
-  public constructor(init?: Partial<Bus>) {
+  public constructor(init?: Partial<Ruta>) {
     Object.assign(this, init);
   }
 }

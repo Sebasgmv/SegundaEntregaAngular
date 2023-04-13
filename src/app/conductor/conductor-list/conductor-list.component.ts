@@ -19,6 +19,10 @@ export class ConductorListComponent implements OnInit{
     this.conductorService.findAll().subscribe( conductores => this.conductores = conductores);
   }
 
+  CrearConductor(){
+    this.router.navigate(['/conductor/create']);
+  }
+
   viewConductor(conductor: Conductor): void{
     if (conductor && conductor.id) {
       this.router.navigate(['/conductor/view', conductor.id]);
@@ -28,9 +32,6 @@ export class ConductorListComponent implements OnInit{
     if (conductor && conductor.id) {
       this.router.navigate(['/conductor/edit', conductor.id]);
     }
-  }
-  CrearConductor(){
-    this.router.navigate(['/conductor/create']);
   }
 
   deleteConductor(conductor: Conductor): void{
