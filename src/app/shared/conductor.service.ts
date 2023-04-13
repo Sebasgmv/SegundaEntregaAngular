@@ -23,8 +23,17 @@ export class ConductorService {
     return this.http.get<Conductor>(`http://localhost:8080/conductor/view/${id}`);
   }
 
-  save(conductor: Conductor): Observable<Conductor> {
+  crearConductor(conductor: Conductor): Observable<Conductor> {
+    return this.http.post<Conductor>("http://localhost:8080/conductor", conductor, this.httpOptions);
+  }
+
+  modificarConductor(conductor: Conductor): Observable<Conductor> {
     return this.http.put<Conductor>("http://localhost:8080/conductor", conductor, this.httpOptions);
+  }
+
+  eliminarConductor(id: number | null | undefined):Observable<any>{
+    return this.http.delete(`http://localhost:8080/conductor/delete/${id}`);
+    // return this.http.delete<Conductor>('http://localhost:8080/conductor', conductor, this.httpOptions);
   }
 
 }

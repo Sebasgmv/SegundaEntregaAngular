@@ -1,1 +1,12 @@
 <p>bus-list works!</p>
+<button (click)="CrearBus()">Crear Bus</button>
+<div>
+  <ul>
+    <li *ngFor="let bus of buses; let i = index">
+      {{i}} {{bus.placa}}
+         <button (click)="viewBus(bus)">Ver</button>
+         <button (click)="editBus(bus)">Editar</button>
+<!--         <button (click)="deleteBus(bus)">Delete</button>-->
+    </li>
+  </ul>
+</div>

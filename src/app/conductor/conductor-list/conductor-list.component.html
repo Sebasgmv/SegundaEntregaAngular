@@ -1,12 +1,13 @@
 <p>conductor-list works!</p>
-<p>Hola</p>
+
+<button (click)="CrearConductor()">Crear Conductor</button>
 <div>
   <ul>
     <li *ngFor="let conductor of conductores; let i = index">
       {{i}} {{conductor.nombre}}
       <button (click)="viewConductor(conductor)">Ver</button>
       <button (click)="editConductor(conductor)">Editar</button>
-      <button (click)="deleteConductor(conductor)">Editar</button>
+      <button (click)="deleteConductor(conductor)">Delete</button>
     </li>
   </ul>
 </div>

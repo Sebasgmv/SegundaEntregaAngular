@@ -26,6 +26,7 @@ export class ConductorEditComponent implements OnInit{
 
   constructor(private conductorService: ConductorService,
               private route: ActivatedRoute,
+              private router: Router,
               private fb: FormBuilder) {
   }
   ngOnInit(): void {
@@ -34,8 +35,21 @@ export class ConductorEditComponent implements OnInit{
     )).subscribe(conductor => this.conductor = conductor);
   }
 
-  savePerson() {
-    let conductor: Conductor = new Conductor(this.conductorForm.value);
+  saveConductor() {
+    let conductor1: Conductor = new Conductor(this.conductorForm.value);
+    conductor1.id = this.conductor.id
+    this.conductorService.modificarConductor(conductor1).subscribe({
+      next: dato => console.log(dato),
+      error: msg => {
+        console.error("Hubo un error:");
+        console.error(msg);
+      }
+    });
+    this.router.navigate(['/conductor/list']);
+  }
+
+  cancel(){
+    this.router.navigate(['/conductor/list']);
   }
 
 }
