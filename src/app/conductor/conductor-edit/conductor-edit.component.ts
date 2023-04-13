@@ -13,7 +13,7 @@ import {ConductorEditForm} from "../../forms/conductor-edit-form";
 })
 export class ConductorEditComponent implements OnInit{
 
-  conductor: Conductor = new Conductor(0, "","", "", "")
+  conductor: Conductor = new Conductor()
 
   conductorForm = this.fb.group<ConductorEditForm>(
     {
@@ -35,8 +35,7 @@ export class ConductorEditComponent implements OnInit{
   }
 
   savePerson() {
-    let doctor: Conductor = new Conductor(this.doctorForm.value);
-    this.conductorService.save(Conductor("aaa", "bbbb", "313431")).subscribe(console.log);
+    let conductor: Conductor = new Conductor(this.conductorForm.value);
   }
 
 }

@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ConductorViewComponent implements OnInit{
 
-  conductor: Conductor = new Conductor(0, "","", "", "")
+  conductor: Conductor = new Conductor()
 
   constructor(private conductorService: ConductorService,
               private route: ActivatedRoute,

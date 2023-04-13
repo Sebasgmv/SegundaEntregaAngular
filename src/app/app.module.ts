@@ -20,6 +20,7 @@ import { RutaListComponent } from './ruta/ruta-list/ruta-list.component';
 import { RutaSearchComponent } from './ruta/ruta-search/ruta-search.component';
 import { RutaViewComponent } from './ruta/ruta-view/ruta-view.component';
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -41,11 +42,12 @@ import {HttpClientModule} from "@angular/common/http";
     RutaSearchComponent,
     RutaViewComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

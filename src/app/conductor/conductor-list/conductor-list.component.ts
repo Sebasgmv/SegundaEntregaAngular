@@ -29,5 +29,8 @@ export class ConductorListComponent implements OnInit{
       this.router.navigate(['/conductor/edit', conductor.id]);
     }
   }
+  deleteConductor(conductor: Conductor): void{
+
+  }
 
 }
