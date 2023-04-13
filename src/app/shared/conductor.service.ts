@@ -24,6 +24,7 @@ export class ConductorService {
   }
 
   save(conductor: Conductor): Observable<Conductor> {
-    return this.http.post<Conductor>(`http://localhost:8080/conductor`, conductor, this.httpOptions);
+    return this.http.put<Conductor>("http://localhost:8080/conductor", conductor, this.httpOptions);
   }
+
 }
