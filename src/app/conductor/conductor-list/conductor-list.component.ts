@@ -30,20 +30,21 @@ export class ConductorListComponent implements OnInit{
   }
   editConductor(conductor: Conductor): void{
     if (conductor && conductor.id) {
-      this.router.navigate(['/conductor/edit', conductor.id]);
+
     }
   }
 
   deleteConductor(conductor: Conductor): void{
     if (conductor && conductor.id) {
       this.conductorService.eliminarConductor(conductor.id).subscribe({
-        // next: dato => console.log(dato),
+        next: dato => console.log(dato),
         error: msg => {
           console.error("Hubo un error:");
           console.error(msg);
         }
       });
     }
+    this.router.navigate(['/conductor/list']);
   }
 
 }

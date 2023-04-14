@@ -32,6 +32,6 @@ export class BusService {
   }
 
   eliminarBus(id: number | null | undefined):Observable<any>{
-    return this.http.delete(`http://localhost:8080/conductor/delete/${id}`);
+    return this.http.delete(`http://localhost:8080/bus/delete/${id}`);
   }
 }
