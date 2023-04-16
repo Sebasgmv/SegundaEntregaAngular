@@ -20,7 +20,7 @@ import { RutaListComponent } from './ruta/ruta-list/ruta-list.component';
 import { RutaSearchComponent } from './ruta/ruta-search/ruta-search.component';
 import { RutaViewComponent } from './ruta/ruta-view/ruta-view.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EstacionCreateComponent } from './estacion/estacion-create/estacion-create.component';
 import { EstacionListComponent } from './estacion/estacion-list/estacion-list.component';
 import { EstacionViewComponent } from './estacion/estacion-view/estacion-view.component';
@@ -66,12 +66,13 @@ import { TrabajoViewComponent } from './trabajo/trabajo-view/trabajo-view.compon
     TrabajoListComponent,
     TrabajoViewComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

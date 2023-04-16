@@ -10,11 +10,11 @@
   <label for="horario">Horario: </label>
   <input id="horario" type="text" formControlName="horario">
 
-  <div *ngIf="rutaForm.controls.estaciones.invalid && (rutaForm.controls.estaciones.dirty || rutaForm.controls.estaciones.touched)"
+  <div *ngIf="rutaForm.controls.horario.invalid && (rutaForm.controls.horario.dirty || rutaForm.controls.horario.touched)"
        class="alert">
 
-    <div *ngIf="rutaForm.controls.estaciones.errors?.['required']">
-      Placa is required.
+    <div *ngIf="rutaForm.controls.horario.errors?.['required']">
+      Horario is required.
     </div>
 
   </div>
@@ -23,4 +23,4 @@
 </form>
 
 <button (click)="cancel()">Cancel</button>
-<app-estacion-list></app-estacion-list>
+<app-estacion-list [mostrarDiv]="false" [mostrarDiv2]="true"></app-estacion-list>

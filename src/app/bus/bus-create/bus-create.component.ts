@@ -46,7 +46,7 @@ export class BusCreateComponent implements OnInit{
     this.router.navigate(['/bus/list']);
   }
   cancel(){
-    this.router.navigate(['/conductor/list']);
+    this.router.navigate(['/bus/list']);
   }
 
 }

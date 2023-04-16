@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Conductor} from "../../model/conductor";
 import {Estacion} from "../../model/estacion";
 import {ConductorService} from "../../shared/conductor.service";
@@ -13,7 +13,14 @@ import {EstacionService} from "../../shared/estacion.service";
 export class EstacionListComponent implements OnInit, OnDestroy{
   navigationSubscription;
 
+  @Output()
+  selectionChanged = new EventEmitter<boolean[]>();
+
+  selection: boolean[] = [];
+
   estaciones: Estacion[] | undefined;
+  @Input() mostrarDiv = true;
+  @Input() mostrarDiv2 = false;
 
   constructor(private estacionService: EstacionService,
               private route: ActivatedRoute,
@@ -64,6 +71,13 @@ export class EstacionListComponent implements OnInit, OnDestroy{
       });
     }
     this.router.navigate(['/estacion/list']);
+  }
+  agregarEstacion(estacion: Estacion): void{
+
+  }
+
+  onSelectPerson() {
+    this.selectionChanged.emit(this.selection);
   }
 
 }

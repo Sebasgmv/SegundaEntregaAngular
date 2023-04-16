@@ -1,0 +1,34 @@
+p{
+  font-size: 22px; /* Tamaño de fuente deseado */
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+  color: #000000;
+}
+
+h2{
+  font-size: 45px; /* Tamaño de fuente deseado */
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+  color: #000000;
+}
+.caja{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+button {
+  background-color:  #AAF5A3; /* Color de fondo deseado */
+  color: #000000; /* Color de texto deseado */
+  padding: 8px 16px; /* Espaciado interno del botón */
+  border: none; /* Quita los bordes predeterminados */
+  border-radius: 10px; /* Redondea las esquinas del botón */
+  font-size: 22px; /* Tamaño de fuente deseado */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  margin-left: 5px; /* Espaciado a la izquierda del botón para separarlo de otros elementos */
+}
+
+label{
+  font-size: 22px; /* Tamaño de fuente deseado */
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+  color: #000000;
+}

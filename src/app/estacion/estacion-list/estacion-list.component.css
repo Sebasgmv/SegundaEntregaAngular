@@ -25,6 +25,15 @@
   }
 }
 
+.caja2 {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 370px;
+}
+
 ul {
   list-style-type: none; /* Quita los estilos de lista predeterminados */
   padding: 0;

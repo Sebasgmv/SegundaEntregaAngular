@@ -1,27 +1,28 @@
-<p>bus-create works!</p>
-<h2>Bus</h2>
-<p>{{bus.id}}</p>
-<p>{{bus.placa}}</p>
-<p>{{bus.modelo}}</p>
+<div class="caja">
+  <h2>Bus</h2>
+  <p>{{bus.id}}</p>
+  <p>{{bus.placa}}</p>
+  <p>{{bus.modelo}}</p>
 
-<form [formGroup]="busForm" (ngSubmit)="crearBus()">
+  <form [formGroup]="busForm" (ngSubmit)="crearBus()">
 
-  <label for="placa">Placa: </label>
-  <input id="placa" type="text" formControlName="placa">
+    <label for="placa">Placa: </label>
+    <input id="placa" type="text" formControlName="placa">
 
-  <label for="modelo">Modelo: </label>
-  <input id="modelo" type="text" formControlName="modelo">
+    <label for="modelo">Modelo: </label>
+    <input id="modelo" type="text" formControlName="modelo">
 
-  <div *ngIf="busForm.controls.placa.invalid && (busForm.controls.placa.dirty || busForm.controls.placa.touched)"
-       class="alert">
+    <div *ngIf="busForm.controls.placa.invalid && (busForm.controls.placa.dirty || busForm.controls.placa.touched)"
+         class="alert">
 
-    <div *ngIf="busForm.controls.placa.errors?.['required']">
-      Placa is required.
+      <div *ngIf="busForm.controls.placa.errors?.['required']">
+        Placa is required.
+      </div>
+
     </div>
 
-  </div>
+    <button type="submit" [disabled]="!busForm.valid">Save</button>
+  </form>
 
-  <button type="submit" [disabled]="!busForm.valid">Save</button>
-</form>
-
-<button (click)="cancel()">Cancel</button>
+  <button (click)="cancel()">Cancel</button>
+</div>
