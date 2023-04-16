@@ -2,7 +2,7 @@
 <button (click)="CrearRuta()">Crear Ruta</button>
   <ul>
     <li *ngFor="let ruta of rutas; let i = index">
-      {{i}} {{ruta.placa}}
+      {{i}} {{ruta.estaciones}}{{ruta.horario}}
       <button (click)="viewRuta(ruta)">Ver</button>
       <button (click)="editBus(ruta)">Editar</button>
       <button (click)="deleteRuta(ruta)">Delete</button>

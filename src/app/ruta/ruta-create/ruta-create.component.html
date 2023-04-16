@@ -1,27 +1,26 @@
 <p>ruta-create works!</p>
 <h2>Ruta</h2>
-<p>{{ruta.id}}</p>
-<p>{{bus.placa}}</p>
-<p>{{bus.modelo}}</p>
 
-<form [formGroup]="busForm" (ngSubmit)="crearBus()">
 
-  <label for="placa">Placa: </label>
-  <input id="placa" type="text" formControlName="placa">
+<form [formGroup]="rutaForm" (ngSubmit)="crearRuta()">
 
-  <label for="modelo">Modelo: </label>
-  <input id="modelo" type="text" formControlName="modelo">
+  <label for="estacion">Estaciones: </label>
+  <input id="estacion" type="text" formControlName="estacion">
 
-  <div *ngIf="busForm.controls.placa.invalid && (busForm.controls.placa.dirty || busForm.controls.placa.touched)"
+  <label for="horario">Horario: </label>
+  <input id="horario" type="text" formControlName="horario">
+
+  <div *ngIf="rutaForm.controls.estaciones.invalid && (rutaForm.controls.estaciones.dirty || rutaForm.controls.estaciones.touched)"
        class="alert">
 
-    <div *ngIf="busForm.controls.placa.errors?.['required']">
+    <div *ngIf="rutaForm.controls.estaciones.errors?.['required']">
       Placa is required.
     </div>
 
   </div>
 
-  <button type="submit" [disabled]="!busForm.valid">Save</button>
+  <button type="submit" [disabled]="!rutaForm.valid">Save</button>
 </form>
 
 <button (click)="cancel()">Cancel</button>
+<app-estacion-list></app-estacion-list>

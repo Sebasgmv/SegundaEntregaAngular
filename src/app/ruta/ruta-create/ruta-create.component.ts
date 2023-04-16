@@ -7,6 +7,7 @@ import {BusEditForm} from "../../forms/bus-edit-form";
 import {switchMap} from "rxjs";
 import {RutaService} from "../../shared/ruta.service";
 import {Ruta} from "../../model/ruta";
+import {RutaEditForm} from "../../forms/ruta-edit-form";
 
 @Component({
   selector: 'app-ruta-create',
@@ -22,32 +23,32 @@ export class RutaCreateComponent implements OnInit{
 
   ruta: Ruta = new Ruta()
 
-  busForm = this.fb.group<RutaE>(
+  rutaForm = this.fb.group<RutaEditForm>(
     {
-      placa: this.fb.control('', [Validators.required]),
-      modelo: this.fb.control('', [Validators.required]),
+      estaciones: this.fb.control('', [Validators.required]),
+      horario: this.fb.control('', [Validators.required]),
     }
   );
 
   ngOnInit(): void {
-    this.route.paramMap.pipe(switchMap(params =>
-        this.busService.recuperarBus(+params.get('id')!)
+    /*this.route.paramMap.pipe(switchMap(params =>
+        this.rutaService.recuperarRuta(+params.get('id')!)
       // this.personService.findById(+(params.get('id') || 1))
-    )).subscribe(bus => this.bus = bus);
+    )).subscribe(ruta => this.ruta = ruta);*/
   }
 
-  crearBus() {
-    let bus1: Bus = new Bus(this.busForm.value);
-    this.busService.editarBus(bus1).subscribe({
+  crearRuta() {
+    let ruta1: Ruta = new Ruta(this.rutaForm.value);
+    this.rutaService.editarRuta(ruta1).subscribe({
       next: dato => console.log(dato),
       error: msg => {
         console.error("Hubo un error:");
         console.error(msg);
       }
     });
-    this.router.navigate(['/bus/list']);
+    this.router.navigate(['/ruta/list']);
   }
   cancel(){
-    this.router.navigate(['/conductor/list']);
+    this.router.navigate(['/ruta/list']);
   }
 }

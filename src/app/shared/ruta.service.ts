@@ -20,7 +20,7 @@ export class RutaService {
   }
 
   recuperarRuta(id: number): Observable<Ruta> {
-    return this.http.get<Ruta>(`http://localhost:8080/bus/view/${id}`);
+    return this.http.get<Ruta>(`http://localhost:8080/ruta/view/${id}`);
   }
 
   modificarRuta(ruta: Ruta): Observable<Ruta> {
