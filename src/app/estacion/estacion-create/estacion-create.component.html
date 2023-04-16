@@ -1,1 +1,23 @@
 <p>estacion-create works!</p>
+<h2>Estacion</h2>
+<p>{{estacion.id}}</p>
+<p>{{estacion.nombre}}</p>
+
+<form [formGroup]="estacionForm" (ngSubmit)="crearEstacion()">
+
+  <label for="nombre">Nombre: </label>
+  <input id="nombre" type="text" formControlName="nombre">
+
+  <div *ngIf="estacionForm.controls.nombre.invalid && (estacionForm.controls.nombre.dirty || estacionForm.controls.nombre.touched)"
+       class="alert">
+
+    <div *ngIf="estacionForm.controls.nombre.errors?.['required']">
+      Placa is required.
+    </div>
+
+  </div>
+
+  <button type="submit" [disabled]="!estacionForm.valid">Save</button>
+</form>
+
+<button (click)="cancel()">Cancel</button>

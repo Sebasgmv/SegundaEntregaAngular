@@ -27,11 +27,11 @@ export class EstacionService {
   }
 
   modificarEstacion(estacion: Estacion): Observable<Estacion> {
-    return this.http.put<Estacion>("http://localhost:8080/conductor", estacion, this.httpOptions);
+    return this.http.put<Estacion>("http://localhost:8080/estacion", estacion, this.httpOptions);
   }
 
   eliminarEstacion(id: number | null | undefined):Observable<any>{
-    return this.http.delete(`http://localhost:8080/conductor/delete/${id}`);
+    return this.http.delete(`http://localhost:8080/estacion/delete/${id}`);
     // return this.http.delete<Conductor>('http://localhost:8080/conductor', conductor, this.httpOptions);
   }
 }

@@ -19,31 +19,33 @@ import {EstacionListComponent} from "./estacion/estacion-list/estacion-list.comp
 import {EstacionViewComponent} from "./estacion/estacion-view/estacion-view.component";
 import {EstacionEditComponent} from "./estacion/estacion-edit/estacion-edit.component";
 import {EstacionCreateComponent} from "./estacion/estacion-create/estacion-create.component";
+import {TrabajoListComponent} from "./trabajo/trabajo-list/trabajo-list.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'conductor/list', component: ConductorListComponent },
+  { path: 'conductor/list', component: ConductorListComponent , runGuardsAndResolvers: "always"},
   { path: 'conductor/view/:id', component: ConductorViewComponent },
   { path: 'conductor/edit/:id', component: ConductorEditComponent },
   { path: 'conductor/search', component: ConductorSearchComponent },
   { path: 'conductor/create', component: ConductorCreateComponent },
-  { path: 'bus/list', component: BusListComponent },
+  { path: 'bus/list', component: BusListComponent , runGuardsAndResolvers: "always"},
   { path: 'bus/view/:id', component: BusViewComponent },
   { path: 'bus/edit/:id', component: BusEditComponent },
   { path: 'bus/create', component: BusCreateComponent },
-  { path: 'ruta/list', component: RutaListComponent },
+  { path: 'ruta/list', component: RutaListComponent , runGuardsAndResolvers: "always"},
   { path: 'ruta/view/:id', component: RutaViewComponent },
   { path: 'ruta/edit/:id', component: RutaEditComponent },
   { path: 'ruta/create', component: RutaCreateComponent },
-  { path: 'estacion/list', component: EstacionListComponent },
+  { path: 'estacion/list', component: EstacionListComponent , runGuardsAndResolvers: "always"},
   { path: 'estacion/view/:id', component: EstacionViewComponent },
   { path: 'estacion/edit/:id', component: EstacionEditComponent },
   { path: 'estacion/create', component: EstacionCreateComponent },
+  { path: 'trabajo/list', component: TrabajoListComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

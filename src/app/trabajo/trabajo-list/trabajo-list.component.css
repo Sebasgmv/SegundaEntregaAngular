@@ -1,0 +1,67 @@
+.caja{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Cambiar a "flex-start" para alinear a la izquierda */
+  max-width: 800px;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  margin-left: 50px; /* Eliminar el margen izquierdo para alinear a la izquierda */
+  animation-name: slideIn; /* Nombre de la animación */
+  animation-duration: 1s; /* Duración de la animación en segundos */
+  animation-timing-function: ease; /* Función de temporización de la animación */
+  animation-fill-mode: forwards; /* Mantener el estado final de la animación después de que termine */
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: -200px; /* Estado inicial: la caja está fuera de la pantalla hacia arriba */
+    opacity: 0; /* Estado inicial: la caja es invisible */
+  }
+  to {
+    margin-top: 60px; /* Estado final: la caja se mueve hacia abajo a su posición original */
+    opacity: 1; /* Estado final: la caja se vuelve visible */
+  }
+}
+
+ul {
+  list-style-type: none; /* Quita los estilos de lista predeterminados */
+  padding: 0;
+}
+
+li {
+  font-size: 22px; /* Tamaño de fuente deseado */
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+  color: #000000;
+}
+
+button {
+  background-color:  #AAF5A3; /* Color de fondo deseado */
+  color: #000000; /* Color de texto deseado */
+  padding: 8px 16px; /* Espaciado interno del botón */
+  border: none; /* Quita los bordes predeterminados */
+  border-radius: 10px; /* Redondea las esquinas del botón */
+  font-size: 22px; /* Tamaño de fuente deseado */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  margin-left: 5px; /* Espaciado a la izquierda del botón para separarlo de otros elementos */
+}
+
+.caja button {
+  background-color:  #AAF5A3; /* Color de fondo deseado */
+  color: #000000; /* Color de texto deseado */
+  font-size: 22px; /* Tamaño de fuente deseado */
+  margin-bottom: 10px; /* Espaciado inferior del botón */
+}
+
+.caja ul li button {
+  background-color:  #AAF5A3; /* Color de fondo deseado */
+  font-size: 22px; /* Tamaño de fuente deseado */
+  margin-left: 20px; /* Espaciado a la izquierda del botón */
+}
+
+/*.imagen{
+  width: 100%; !* Ajusta el ancho de la imagen al 100% del contenedor *!
+  max-width: 300px; !* Limita el ancho máximo de la imagen *!
+  margin-top: 20px; !* Agrega espacio superior de 20px a la imagen *!
+}*/

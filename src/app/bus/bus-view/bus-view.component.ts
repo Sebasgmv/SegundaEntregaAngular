@@ -26,4 +26,8 @@ export class BusViewComponent implements OnInit{
     )).subscribe(bus => this.bus = bus);
   }
 
+  navigateToList() {
+    this.router.navigate(['/bus/list']);
+  }
+
 }

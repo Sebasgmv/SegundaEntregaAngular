@@ -2,7 +2,7 @@
   position: absolute;
   width: 1328px;
   height: 352px;
-  left: 150px;
+  left: 165px;
   top: 8px;
 
   font-family: 'Roboto';
@@ -14,8 +14,9 @@
 
 
   color: rgba(174, 245, 163, 0.4);
-
+  animation: aparecer 1s ease-in-out forwards; /* Aplica la animación 'aparecer' con una duración de 1 segundo */
 }
+
 
 #Transmi2{
 
@@ -34,4 +35,16 @@
 
 
   color: #AAF5A3;
+  animation: aparecer 1s ease-in-out forwards; /* Aplica la animación 'aparecer' con una duración de 1 segundo */
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0; /* Inicia con opacidad 0 */
+    transform: translateY(-20px); /* Desplaza el texto hacia arriba 20px */
+  }
+  100% {
+    opacity: 1; /* Termina con opacidad 1 */
+    transform: translateY(0); /* Sin desplazamiento vertical */
+  }
 }

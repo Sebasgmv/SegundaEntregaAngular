@@ -1,12 +1,12 @@
-<p>estacion-list works!</p>
-<button (click)="CrearEstacion()">Crear Estacion</button>
-<div>
+<div class="caja">
+  <button (click)="CrearEstacion()">Crear Estacion</button>
   <ul>
     <li *ngFor="let estacion of estaciones; let i = index">
       {{i}} {{estacion.nombre}}
       <button (click)="viewEstacion(estacion)">Ver</button>
       <button (click)="editEstacion(estacion)">Editar</button>
-      <button (click)="deleteestacion(estacion)">Delete</button>
+      <button (click)="deleteEstacion(estacion)">Delete</button>
     </li>
   </ul>
+  <!--<img class="imagen" src="/assets/estacion.png">-->
 </div>

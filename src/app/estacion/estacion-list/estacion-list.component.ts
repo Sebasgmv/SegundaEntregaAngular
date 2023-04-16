@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Conductor} from "../../model/conductor";
 import {Estacion} from "../../model/estacion";
 import {ConductorService} from "../../shared/conductor.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {EstacionService} from "../../shared/estacion.service";
 
 @Component({
@@ -10,13 +10,29 @@ import {EstacionService} from "../../shared/estacion.service";
   templateUrl: './estacion-list.component.html',
   styleUrls: ['./estacion-list.component.css']
 })
-export class EstacionListComponent implements OnInit{
+export class EstacionListComponent implements OnInit, OnDestroy{
+  navigationSubscription;
 
   estaciones: Estacion[] | undefined;
 
   constructor(private estacionService: EstacionService,
               private route: ActivatedRoute,
               private router: Router) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.initialiseInvites();
+      }
+    });
+  }
+  initialiseInvites() {
+    // Set default values and re-fetch any data you need.
+    this.ngOnInit()
+  }
+  ngOnDestroy(): void {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
   }
 
   ngOnInit(): void {
@@ -37,8 +53,7 @@ export class EstacionListComponent implements OnInit{
       this.router.navigate(['/estacion/edit', estacion.id]);
     }
   }
-
-  deleteestacion(estacion: Estacion): void{
+  deleteEstacion(estacion: Estacion): void{
     if (estacion && estacion.id) {
       this.estacionService.eliminarEstacion(estacion.id).subscribe({
         // next: dato => console.log(dato),
@@ -48,6 +63,7 @@ export class EstacionListComponent implements OnInit{
         }
       });
     }
+    this.router.navigate(['/estacion/list']);
   }
 
 }

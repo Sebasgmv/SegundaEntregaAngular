@@ -29,4 +29,8 @@ export class ConductorViewComponent implements OnInit{
       conductor => this.conductor = conductor);*/
   }
 
+  navigateToList() {
+    this.router.navigate(['/conductor/list']); // Navegar a la ruta '/conductor/list'
+  }
+
 }

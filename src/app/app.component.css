@@ -1,19 +1,110 @@
-nav ul {
-  list-style-type: none;
+
+.head{
+  display: grid;
+  grid-template-columns: auto 1fr; /* Especifica dos columnas, la primera ajustada al contenido y la segunda con un ancho flexible */
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  background: #AAF5A3;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
-nav li {
-  display: inline-block;
-  padding: 10px;
-  margin: 5px;
-  background-color: lightblue;
+.navbar{
+  display: grid;
+  grid-column: 2; /* Coloca .navbar en la segunda columna de la cuadrícula */
+  margin-right: 20px;
+  margin-left: 60px;
 }
 
-nav a {
-  color: black;
+.menu {
+  display: flex; /* Hace que la lista sea un flex container */
+  list-style-type: none; /* Quita los estilos de lista predeterminados */
+  padding: 0; /* Elimina el relleno predeterminado de la lista */
+}
+
+.menu li {
+  margin-right: 80px; /* Agrega un margen derecho entre los elementos de lista */
+}
+
+.logo {
+  margin-left: 50px;
+  margin-right: 50px;
   text-decoration: none;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: bold;
+  overflow: hidden; /* Para ocultar el texto antes de la animación */
+  white-space: nowrap; /* Para que el texto no se divida en varias líneas */
+  animation: aparecer 5s linear both infinite;
 }
 
-nav .menuSelected {
-  background-color: #53b8b4;
+@keyframes aparecer {
+  0% {
+    width: 0; /* Ancho inicial del texto */
+  }
+  100% {
+    width: 100%; /* Ancho final del texto (100% del contenedor) */
+  }
+}
+
+.navbar a{
+  display: block;
+  padding: 20px 20px;
+  color: #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  /*font-weight: bold;*/
+  font-size: 20px;
+}
+
+.navbar a:hover{
+  background: #000000;
+  color: aliceblue;
+  border-radius: 15px;
+}
+
+/* Estilos para el fondo */
+.container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bubbles{
+  position: relative;
+  display: flex;
+}
+
+.bubbles span {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #AAF5A3;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px rgba(174, 245, 163, 0.4),
+  0 0 50px #ace3a7,
+  0 0 100px #9fe099;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(125s/ var(--i));
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}
+
+.bubbles span:nth-child(even){
+  background: aquamarine;
+  box-shadow: 0 0 0 10px rgba(163, 245, 216, 0.4),
+  0 0 50px #a7e3ce,
+  0 0 100px #99e0d8;
 }

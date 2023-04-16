@@ -1,34 +1,36 @@
-<p>conductor-edit works!</p>
-<h2>Conductor</h2>
-<p>{{conductor.nombre}}</p>
-<p>{{conductor.cedula}}</p>
-<p>{{conductor.telefono}}</p>
-<p>{{conductor.direccion}}</p>
+<div class="caja">
+  <h2>Conductor</h2>
+  <p>{{conductor.nombre}}</p>
+  <p>{{conductor.cedula}}</p>
+  <p>{{conductor.telefono}}</p>
+  <p>{{conductor.direccion}}</p>
 
-<form [formGroup]="conductorForm" (ngSubmit)="saveConductor()">
+  <form [formGroup]="conductorForm" (ngSubmit)="saveConductor()">
 
-  <label for="nombre">Nombre: </label>
-  <input id="nombre" type="text" formControlName="nombre">
+    <label for="nombre">Nombre: </label>
+    <input id="nombre" type="text" formControlName="nombre">
 
-  <label for="cedula">Cedula: </label>
-  <input id="cedula" type="text" formControlName="cedula">
+    <label for="cedula">Cedula: </label>
+    <input id="cedula" type="text" formControlName="cedula">
 
-  <label for="telefono">Telefono: </label>
-  <input id="telefono" type="text" formControlName="telefono">
+    <label for="telefono">Telefono: </label>
+    <input id="telefono" type="text" formControlName="telefono">
 
-  <label for="direccion">Direccion: </label>
-  <input id="direccion" type="text" formControlName="direccion">
+    <label for="direccion">Direccion: </label>
+    <input id="direccion" type="text" formControlName="direccion">
 
-  <div *ngIf="conductorForm.controls.nombre.invalid && (conductorForm.controls.nombre.dirty || conductorForm.controls.nombre.touched)"
-       class="alert">
+    <div *ngIf="conductorForm.controls.nombre.invalid && (conductorForm.controls.nombre.dirty || conductorForm.controls.nombre.touched)"
+         class="alert">
 
-    <div *ngIf="conductorForm.controls.nombre.errors?.['required']">
-      Nombre is required.
+      <div *ngIf="conductorForm.controls.nombre.errors?.['required']">
+        Nombre is required.
+      </div>
+
     </div>
 
-  </div>
+    <button type="submit" [disabled]="!conductorForm.valid">Save</button>
+  </form>
 
-  <button type="submit" [disabled]="!conductorForm.valid">Save</button>
-</form>
+  <button (click)="cancel()">Cancel</button>
 
-<button (click)="cancel()">Cancel</button>
+</div>

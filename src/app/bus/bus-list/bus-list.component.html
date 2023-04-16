@@ -1,6 +1,5 @@
-<p>bus-list works!</p>
-<button (click)="CrearBus()">Crear Bus</button>
-<div>
+<div class="caja">
+  <button (click)="CrearBus()">Crear Bus</button>
   <ul>
     <li *ngFor="let bus of buses; let i = index">
       {{i}} {{bus.placa}}
@@ -9,4 +8,7 @@
          <button (click)="deleteBus(bus)">Delete</button>
     </li>
   </ul>
+  <!--<div >
+    <img class="imagen" src="/assets/buss.png">
+  </div>-->
 </div>

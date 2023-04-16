@@ -1,7 +1,5 @@
-<p>conductor-list works!</p>
-
-<button (click)="CrearConductor()">Crear Conductor</button>
-<div>
+<div class="caja">
+  <button (click)="CrearConductor()">Crear Conductor</button>
   <ul>
     <li *ngFor="let conductor of conductores; let i = index">
       {{i}} {{conductor.nombre}}
@@ -10,4 +8,7 @@
       <button (click)="deleteConductor(conductor)">Delete</button>
     </li>
   </ul>
+  <!--<div>
+    <img class="imagen" src="/assets/cc.png">
+  </div>-->
 </div>

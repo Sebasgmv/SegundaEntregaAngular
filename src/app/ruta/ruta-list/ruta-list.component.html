@@ -1,12 +1,11 @@
-<p>ruta-list works!</p>
-<!--<button (click)="CrearEstacion()">Crear Estacion</button>-->
-<!--<div>-->
-<!--  <ul>-->
-<!--    <li *ngFor="let bus of estaciones; let i = index">-->
-<!--      {{i}} {{bus.placa}}-->
-<!--      <button (click)="viewBus(bus)">Ver</button>-->
-<!--      <button (click)="editBus(bus)">Editar</button>-->
-<!--      &lt;!&ndash;         <button (click)="deleteBus(bus)">Delete</button>&ndash;&gt;-->
-<!--    </li>-->
-<!--  </ul>-->
-<!--</div>-->
+<div class="caja">
+<button (click)="CrearRuta()">Crear Ruta</button>
+  <ul>
+    <li *ngFor="let ruta of rutas; let i = index">
+      {{i}} {{ruta.placa}}
+      <button (click)="viewRuta(ruta)">Ver</button>
+      <button (click)="editBus(ruta)">Editar</button>
+      <button (click)="deleteRuta(ruta)">Delete</button>
+    </li>
+  </ul>
+</div>

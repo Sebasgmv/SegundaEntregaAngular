@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Conductor} from "../../model/conductor";
 import {ConductorService} from "../../shared/conductor.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {Bus} from "../../model/bus";
 import {BusService} from "../../shared/bus.service";
 
@@ -10,13 +10,29 @@ import {BusService} from "../../shared/bus.service";
   templateUrl: './bus-list.component.html',
   styleUrls: ['./bus-list.component.css']
 })
-export class BusListComponent implements OnInit{
+export class BusListComponent implements OnInit, OnDestroy{
+  navigationSubscription;
 
   buses: Bus[] | undefined;
 
   constructor(private busService: BusService,
               private route: ActivatedRoute,
               private router: Router) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.initialiseInvites();
+      }
+    });
+  }
+  initialiseInvites() {
+    // Set default values and re-fetch any data you need.
+    this.ngOnInit()
+  }
+  ngOnDestroy(): void {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
   }
   ngOnInit(): void {
     this.busService.findAll().subscribe( buses => this.buses = buses);
