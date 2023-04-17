@@ -4,10 +4,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
 import {Bus} from "../../model/bus";
 import {BusEditForm} from "../../forms/bus-edit-form";
-import {switchMap} from "rxjs";
+import {map, switchMap} from "rxjs";
 import {RutaService} from "../../shared/ruta.service";
 import {Ruta} from "../../model/ruta";
 import {RutaEditForm} from "../../forms/ruta-edit-form";
+import {Estacion} from "../../model/estacion";
 
 @Component({
   selector: 'app-ruta-create',
@@ -22,6 +23,8 @@ export class RutaCreateComponent implements OnInit{
   }
 
   ruta: Ruta = new Ruta()
+  estaciones: Estacion[] = []
+  nestaciones: number = 0
 
   rutaForm = this.fb.group<RutaEditForm>(
     {
@@ -50,5 +53,8 @@ export class RutaCreateComponent implements OnInit{
   }
   cancel(){
     this.router.navigate(['/ruta/list']);
+  }
+  updateCount(selection: boolean[]) {
+    this.nestaciones = selection.filter(x => x).length;
   }
 }

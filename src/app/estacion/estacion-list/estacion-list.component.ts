@@ -16,6 +16,8 @@ export class EstacionListComponent implements OnInit, OnDestroy{
   @Output()
   selectionChanged = new EventEmitter<boolean[]>();
 
+  estacionesSelecionadas: Estacion[] | undefined;
+
   selection: boolean[] = [];
 
   estaciones: Estacion[] | undefined;
@@ -76,8 +78,9 @@ export class EstacionListComponent implements OnInit, OnDestroy{
 
   }
 
-  onSelectPerson() {
+  onSelectEstacion() {
     this.selectionChanged.emit(this.selection);
+    this.estacionesSelecionadas?.every( estacion => estacion)
   }
 
 }

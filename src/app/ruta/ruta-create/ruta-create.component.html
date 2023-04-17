@@ -23,4 +23,8 @@
 </form>
 
 <button (click)="cancel()">Cancel</button>
-<app-estacion-list [mostrarDiv]="false" [mostrarDiv2]="true"></app-estacion-list>
+<app-estacion-list
+  [mostrarDiv]="false" [mostrarDiv2]="true"
+  (selectionChanged)="updateCount($event)"
+></app-estacion-list>
+<p># of selected persons: {{nestaciones}}</p>
