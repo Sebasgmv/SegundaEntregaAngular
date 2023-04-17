@@ -23,7 +23,7 @@ export class RutaService {
     return this.http.get<Ruta>(`http://localhost:8080/ruta/view/${id}`);
   }
 
-  modificarRuta(ruta: Ruta): Observable<Ruta> {
+  crearRuta(ruta: Ruta): Observable<Ruta> {
     return this.http.put<Bus>("http://localhost:8080/ruta", ruta, this.httpOptions);
   }
   editarRuta(ruta: Ruta): Observable<Ruta> {
