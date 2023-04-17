@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BusService} from "../../shared/bus.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
@@ -23,13 +23,14 @@ export class RutaCreateComponent implements OnInit{
   }
 
   ruta: Ruta = new Ruta()
-  estaciones: Estacion[] = []
   nestaciones: number = 0
+
+  estacionesSelec: Estacion[] = []
 
   rutaForm = this.fb.group<RutaEditForm>(
     {
-      estaciones: this.fb.control('', [Validators.required]),
-      horario: this.fb.control('', [Validators.required]),
+      estaciones: this.fb.control(null),
+      horario: this.fb.control(null, [Validators.required]),
     }
   );
 
@@ -41,20 +42,30 @@ export class RutaCreateComponent implements OnInit{
   }
 
   crearRuta() {
-    let ruta1: Ruta = new Ruta(this.rutaForm.value);
-    this.rutaService.editarRuta(ruta1).subscribe({
-      next: dato => console.log(dato),
-      error: msg => {
-        console.error("Hubo un error:");
-        console.error(msg);
-      }
-    });
-    this.router.navigate(['/ruta/list']);
+    if (!this.estacionesSelec.length){
+      console.log("This array is empty!")
+      alert("Se requieren estaciones para la ruta")
+    }else {
+      let ruta1: Ruta = new Ruta(this.rutaForm.value);
+      this.rutaService.editarRuta(ruta1).subscribe({
+        next: dato => console.log(dato),
+        error: msg => {
+          console.error("Hubo un error:");
+          console.error(msg);
+        }
+      });
+      this.router.navigate(['/ruta/list']);
+    }
   }
   cancel(){
     this.router.navigate(['/ruta/list']);
   }
   updateCount(selection: boolean[]) {
     this.nestaciones = selection.filter(x => x).length;
+    console.log(selection)
+  }
+  cargarEstacionesSelecionadas(estaciones: Estacion[]) {
+    this.estacionesSelec = estaciones
+    console.log(this.estacionesSelec)
   }
 }

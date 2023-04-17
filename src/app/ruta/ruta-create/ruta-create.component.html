@@ -3,14 +3,13 @@
 
 
 <form [formGroup]="rutaForm" (ngSubmit)="crearRuta()">
-
-  <label for="estacion">Estaciones: </label>
-  <input id="estacion" type="text" formControlName="estacion">
+<button type="submit" [disabled]="!rutaForm.valid">Save</button>
+<button (click)="cancel()">Cancel</button>
 
   <label for="horario">Horario: </label>
   <input id="horario" type="text" formControlName="horario">
 
-  <div *ngIf="rutaForm.controls.horario.invalid && (rutaForm.controls.horario.dirty || rutaForm.controls.horario.touched)"
+  <div *ngIf="rutaForm.controls.horario.invalid || (rutaForm.controls.horario.dirty || rutaForm.controls.horario.touched)"
        class="alert">
 
     <div *ngIf="rutaForm.controls.horario.errors?.['required']">
@@ -19,12 +18,15 @@
 
   </div>
 
-  <button type="submit" [disabled]="!rutaForm.valid">Save</button>
 </form>
 
-<button (click)="cancel()">Cancel</button>
+<label>Estaciones: </label>
 <app-estacion-list
   [mostrarDiv]="false" [mostrarDiv2]="true"
   (selectionChanged)="updateCount($event)"
+  (estacionesSelecionadas)="cargarEstacionesSelecionadas($event)"
 ></app-estacion-list>
-<p># of selected persons: {{nestaciones}}</p>
+<p>Estaciones seleccionadas: {{nestaciones}}</p>
+<li *ngFor="let estacion of estacionesSelec; let i = index">
+ {{i}} {{estacion.nombre}}
+</li>

@@ -16,11 +16,14 @@ export class EstacionListComponent implements OnInit, OnDestroy{
   @Output()
   selectionChanged = new EventEmitter<boolean[]>();
 
-  public estacionesSelecionadas: Estacion[];
+  @Output()
+  estacionesSelecionadas= new EventEmitter<Estacion[]>();
 
   selection: boolean[] = [];
 
+  estacionesSelecionadasUnicas: Estacion[] = [];
   estaciones: Estacion[] | undefined;
+
   @Input() mostrarDiv = true;
   @Input() mostrarDiv2 = false;
 
@@ -74,18 +77,15 @@ export class EstacionListComponent implements OnInit, OnDestroy{
     }
     this.router.navigate(['/estacion/list']);
   }
-  agregarEstacion(estacion: Estacion): void{
-
-  }
 
   onSelectEstacion(estacion: Estacion, selection: boolean) {
     this.selectionChanged.emit(this.selection);
     if (selection == true){
-      this.estacionesSelecionadas?.push(estacion)
+      this.estacionesSelecionadasUnicas?.push(estacion)
     } else {
-      this.estacionesSelecionadas.splice(this.estacionesSelecionadas?.indexOf(estacion), 1);
+      this.estacionesSelecionadasUnicas?.splice(this.estacionesSelecionadasUnicas?.indexOf(estacion), 1);
     }
-    // this.estacionesSelecionadas?.every( estacionS => estacionS = estacion)
+    this.estacionesSelecionadas.emit(this.estacionesSelecionadasUnicas)
   }
 
 }
