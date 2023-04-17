@@ -5,14 +5,14 @@
 
   <ul>
     <li *ngFor="let estacion of estaciones; let i = index">
-      <input *ngIf="mostrarDiv2"  type="checkbox" name="chkSelected" id="selected{{estacion.id}}" [(ngModel)]="selection[i]" (ngModelChange)="onSelectEstacion()" >
+      <input *ngIf="mostrarDiv2"  type="checkbox" name="chkSelected" id="selected{{estacion.id}}" [(ngModel)]="selection[i]" (ngModelChange)="onSelectEstacion(estacion, $event)" >
       {{i}} {{estacion.nombre}} {{selection[i]}}
       <button *ngIf="mostrarDiv"  (click)="viewEstacion(estacion)">Ver</button>
       <button  *ngIf="mostrarDiv"  (click)="editEstacion(estacion)">Editar</button>
       <button *ngIf="mostrarDiv"  (click)="deleteEstacion(estacion)">Delete</button>
     </li>
     <li *ngFor="let estacion of estacionesSelecionadas; let i = index">
-      <input *ngIf="mostrarDiv2"  type="checkbox" name="chkSelected" id="selected{{estacion.id}}" [(ngModel)]="selection[i]" (ngModelChange)="onSelectEstacion()" >
+      <input *ngIf="mostrarDiv"  type="checkbox" name="chkSelected" id="selected{{estacion.id}}" [(ngModel)]="selection[i]" (ngModelChange)="onSelectEstacion(estacion, $event)" >
       {{i}} {{estacion.nombre}} {{selection[i]}}
     </li>
   </ul>
