@@ -1,1 +1,8 @@
-<p>trabajo-list works!</p>
+<div class="caja">
+  <ul>
+    <li *ngFor="let t of trabajos; let i = index">
+      {{i}} {{t.conductor?.nombre}} {{t.bus?.placa}} {{t.ruta?.id}}
+    </li>
+  </ul>
+</div>
+

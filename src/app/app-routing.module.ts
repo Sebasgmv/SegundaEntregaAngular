@@ -20,6 +20,7 @@ import {EstacionViewComponent} from "./estacion/estacion-view/estacion-view.comp
 import {EstacionEditComponent} from "./estacion/estacion-edit/estacion-edit.component";
 import {EstacionCreateComponent} from "./estacion/estacion-create/estacion-create.component";
 import {TrabajoListComponent} from "./trabajo/trabajo-list/trabajo-list.component";
+import {TrabajoViewComponent} from "./trabajo/trabajo-view/trabajo-view.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'estacion/edit/:id', component: EstacionEditComponent },
   { path: 'estacion/create', component: EstacionCreateComponent },
   { path: 'trabajo/list', component: TrabajoListComponent },
+  { path: 'trabajo/view/:id', component: TrabajoViewComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
 ];
 

@@ -63,4 +63,10 @@ export class ConductorListComponent implements OnInit, OnDestroy{
     this.router.navigate(['/conductor/list']);
   }
 
+  busesConductor(conductor: Conductor): void{
+    if (conductor && conductor.id) {
+      this.router.navigate(['/trabajo/view', conductor.id]);
+    }
+  }
+
 }

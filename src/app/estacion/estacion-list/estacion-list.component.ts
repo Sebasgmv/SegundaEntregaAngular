@@ -16,7 +16,8 @@ export class EstacionListComponent implements OnInit, OnDestroy{
   @Output()
   selectionChanged = new EventEmitter<boolean[]>();
 
-  public estacionesSelecionadas: Estacion[];
+  @Output()
+  estacionesSelecionadas= new EventEmitter<Estacion[]>();
 
   selection: boolean[] = [];
 
@@ -80,11 +81,12 @@ export class EstacionListComponent implements OnInit, OnDestroy{
 
   onSelectEstacion(estacion: Estacion, selection: boolean) {
     this.selectionChanged.emit(this.selection);
-    if (selection == true){
-      this.estacionesSelecionadas?.push(estacion)
-    } else {
-      this.estacionesSelecionadas.splice(this.estacionesSelecionadas?.indexOf(estacion), 1);
-    }
+    this.estacionesSelecionadas.emit(this.estaciones)
+    // if (selection == true){
+    //   this.estacionesSelecionadas?.push(estacion)
+    // } else {
+    //   this.estacionesSelecionadas.splice(this.estacionesSelecionadas?.indexOf(estacion), 1);
+    // }
     // this.estacionesSelecionadas?.every( estacionS => estacionS = estacion)
   }
 
