@@ -5,11 +5,19 @@
 
   <ul>
     <li *ngFor="let estacion of estaciones; let i = index">
+<<<<<<< Updated upstream
       <input *ngIf="mostrarDiv2"  type="checkbox" name="chkSelected" id="selected{{estacion.id}}" [(ngModel)]="selection[i]" (ngModelChange)="onSelectEstacion(estacion, $event)" >
       {{i}} {{estacion.nombre}} {{selection[i]}}
       <button *ngIf="mostrarDiv"  (click)="viewEstacion(estacion)">Ver</button>
       <button  *ngIf="mostrarDiv"  (click)="editEstacion(estacion)">Editar</button>
       <button *ngIf="mostrarDiv"  (click)="deleteEstacion(estacion)">Delete</button>
+=======
+      {{i}} {{estacion.nombre}}
+      <button *ngIf="mostrarDiv" (click)="viewEstacion(estacion)">Ver</button>
+      <button *ngIf="mostrarDiv" (click)="editEstacion(estacion)">Editar</button>
+      <button *ngIf="mostrarDiv"  (click)="deleteEstacion(estacion)">Delete</button>
+      <button *ngIf="mostrarDiv2"  (click)="agregarEstacion(estacion)">Agregar</button>
+>>>>>>> Stashed changes
     </li>
     <!--    <li *ngFor="let estacion of estacionesSelecionadas; let i = index">-->
     <!--      <app-ruta-create [estacionesSelec]="estacion" ></app-ruta-create>-->

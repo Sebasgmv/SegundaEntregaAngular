@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+=======
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+>>>>>>> Stashed changes
 import {Conductor} from "../../model/conductor";
 import {Estacion} from "../../model/estacion";
 import {ConductorService} from "../../shared/conductor.service";
@@ -78,6 +82,7 @@ export class EstacionListComponent implements OnInit, OnDestroy{
   agregarEstacion(estacion: Estacion): void{
 
   }
+<<<<<<< Updated upstream
 
   onSelectEstacion(estacion: Estacion, selection: boolean) {
     this.selectionChanged.emit(this.selection);
@@ -89,5 +94,7 @@ export class EstacionListComponent implements OnInit, OnDestroy{
     // }
     // this.estacionesSelecionadas?.every( estacionS => estacionS = estacion)
   }
+=======
+>>>>>>> Stashed changes
 
 }
