@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Estacion} from "../model/estacion";
 import {Conductor} from "../model/conductor";
+import {Bus} from "../model/bus";
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,9 @@ export class EstacionService {
   eliminarEstacion(id: number | null | undefined):Observable<any>{
     return this.http.delete(`http://localhost:8080/estacion/delete/${id}`);
     // return this.http.delete<Conductor>('http://localhost:8080/conductor', conductor, this.httpOptions);
+  }
+
+  listarEstaciones(id: number): Observable<Estacion[]> {
+    return this.http.get<Estacion[]>(`http://localhost:8080/ruta/view2/${id}`);
   }
 }

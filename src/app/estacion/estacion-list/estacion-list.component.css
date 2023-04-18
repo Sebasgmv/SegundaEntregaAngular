@@ -1,10 +1,10 @@
 .caja{
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center; /* Cambiar a "flex-start" para alinear a la izquierda */
   max-width: 800px;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #000000;
   border-radius: 10px;
   margin-left: 50px; /* Eliminar el margen izquierdo para alinear a la izquierda */
@@ -26,7 +26,7 @@
 }
 
 .caja2 {
-  margin-top: 60px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

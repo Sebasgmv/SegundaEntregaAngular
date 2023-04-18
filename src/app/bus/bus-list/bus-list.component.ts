@@ -54,17 +54,17 @@ export class BusListComponent implements OnInit, OnDestroy{
     this.router.navigate(['/bus/create']);
   }
 
-  deleteBus(bus: Bus): void{
-    if (bus && bus.id) {
-      this.busService.eliminarBus(bus.id).subscribe({
-        next: dato => console.log(dato),
-        error: msg => {
-          console.error("Hubo un error:");
-          console.error(msg);
-        }
-      });
-    }
-    this.router.navigate(['/bus/list']);
+  deleteBus(bus: Bus): void {
+      if (bus && bus.id) {
+        this.busService.eliminarBus(bus.id).subscribe({
+          next: dato => console.log(dato),
+          error: msg => {
+            console.error("Hubo un error:");
+            console.error(msg);
+          }
+        });
+      }
+      this.router.navigate(['/bus/list']);
   }
 
 }
