@@ -4,6 +4,8 @@ import {ConductorService} from "../../shared/conductor.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {Bus} from "../../model/bus";
 import {BusService} from "../../shared/bus.service";
+import {Trabajo} from "../../model/trabajo";
+import {TrabajoService} from "../../shared/trabajo.service";
 
 @Component({
   selector: 'app-bus-list',

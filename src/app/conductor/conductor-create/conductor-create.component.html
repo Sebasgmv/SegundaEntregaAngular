@@ -1,12 +1,6 @@
 <div class="caja">
-<<<<<<< Updated upstream
-  <h2>Conductor</h2>
-  <form [formGroup]="conductorForm" (ngSubmit)="crearConductor()">
-=======
 <h2>Conductor</h2>
 <form [formGroup]="conductorForm" (ngSubmit)="crearConductor()">
->>>>>>> Stashed changes
-
     <label for="nombre">Nombre: </label>
     <input id="nombre" type="text" formControlName="nombre">
 
@@ -18,23 +12,12 @@
 
     <label for="direccion">Direccion: </label>
     <input id="direccion" type="text" formControlName="direccion">
-
     <div *ngIf="conductorForm.controls.nombre.invalid && (conductorForm.controls.nombre.dirty || conductorForm.controls.nombre.touched)"
          class="alert">
-
       <div *ngIf="conductorForm.controls.nombre.errors?.['required']">
         Nombre is required.
       </div>
-
     </div>
-
-<<<<<<< Updated upstream
     <button type="submit" [disabled]="!conductorForm.valid">Save</button>
   </form>
-=======
-  </div>
-
-  <button type="submit" [disabled]="!conductorForm.valid">Save</button>
-</form>
->>>>>>> Stashed changes
 </div>

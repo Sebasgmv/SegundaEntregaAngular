@@ -1,1 +1,42 @@
-<p>ruta-edit works!</p>
+<h2>Ruta</h2>
+
+  <button (click)="cancel()">Cancel</button>
+  <button (click)="crearRuta()">Guardar</button>
+  <!--<button type="submit" [disabled]="!rutaForm.valid">Save</button>-->
+
+  <!--  <label for="horario">Horario: </label>-->
+  <!--  <input id="horario" type="text" formControlName="horario">-->
+
+  <!--  <div *ngIf="rutaForm.controls.horario.invalid || (rutaForm.controls.horario.dirty || rutaForm.controls.horario.touched)"-->
+  <!--       class="alert">-->
+
+  <!--    <div *ngIf="rutaForm.controls.horario.errors?.['required']">-->
+  <!--      Horario is required.-->
+  <!--    </div>-->
+
+  <!--  </div>-->
+
+  <!--</form>-->
+  <label>Rutas: </label>
+  <app-horario-list
+    [mostrarDiv]="false" [mostrarDiv2]="true"
+    (selectionChangedHorarios)="updateCountHorarios($event)"
+    (horariosSelecionados)="cargarHorariosSelecionadas($event)"
+  ></app-horario-list>
+  <p>Horarios seleccionadas: {{nestaciones}}</p>
+  <li *ngFor="let horario of horariosSelec; let i = index">
+    {{i}} {{horario.dias}} {{horario.horaInicio}} {{horario.horaFin}}
+  </li>
+  <div style="overflow-y: auto; max-height: 400px; height: 100%;">
+
+    <label>Estaciones: </label>
+    <app-estacion-list
+      [mostrarDiv]="false" [mostrarDiv2]="true"
+      (selectionChanged)="updateCountEstaciones($event)"
+      (estacionesSelecionadas)="cargarEstacionesSelecionadas($event)"
+    ></app-estacion-list>
+    <p>Estaciones seleccionadas: {{nestaciones}}</p>
+    <li *ngFor="let estacion of estacionesSelec; let i = index">
+      {{i}} {{estacion.nombre}}
+    </li>
+  </div>

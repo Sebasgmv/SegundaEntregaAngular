@@ -9,6 +9,7 @@ import {RutaService} from "../../shared/ruta.service";
 import {Ruta} from "../../model/ruta";
 import {RutaEditForm} from "../../forms/ruta-edit-form";
 import {Estacion} from "../../model/estacion";
+import {Horario} from "../../model/horario";
 
 @Component({
   selector: 'app-ruta-create',
@@ -24,8 +25,10 @@ export class RutaCreateComponent implements OnInit{
 
   ruta: Ruta = new Ruta()
   nestaciones: number = 0
+  nhorarios: number = 0
 
   estacionesSelec: Estacion[] = []
+  horariosSelec: Horario[] = []
 
   rutaForm = this.fb.group<RutaEditForm>(
     {
@@ -46,21 +49,36 @@ export class RutaCreateComponent implements OnInit{
       console.log("This array is empty!")
       alert("Se requieren estaciones para la ruta")
     }else {
-      let ruta1: Ruta = new Ruta(this.rutaForm.value);
-      this.rutaService.editarRuta(ruta1).subscribe({
-        next: dato => console.log(dato),
-        error: msg => {
-          console.error("Hubo un error:");
-          console.error(msg);
-        }
-      });
-      this.router.navigate(['/ruta/list']);
+      if (!this.horariosSelec.length){
+        console.log("This array is empty!")
+        alert("Se requiere solo 1 horario para la ruta")
+      }else {
+        let ruta1: Ruta = new Ruta(this.rutaForm.value);
+        ruta1.estaciones = this.estacionesSelec
+        // this.horariosSelec.filter(h => ruta1.horario = h)
+        this.rutaService.editarRuta(ruta1).subscribe({
+          next: dato => console.log(dato),
+          error: msg => {
+            console.error("Hubo un error:");
+            console.error(msg);
+          }
+        });
+        this.router.navigate(['/ruta/list']);
+      }
     }
   }
   cancel(){
     this.router.navigate(['/ruta/list']);
   }
-  updateCount(selection: boolean[]) {
+  updateCountHorarios(selection: boolean[]) {
+    this.nhorarios = selection.filter(x => x).length;
+    console.log(selection)
+  }
+  cargarHorariosSelecionadas(horarios: Horario[]) {
+    this.horariosSelec = horarios
+    console.log(this.horariosSelec)
+  }
+  updateCountEstaciones(selection: boolean[]) {
     this.nestaciones = selection.filter(x => x).length;
     console.log(selection)
   }

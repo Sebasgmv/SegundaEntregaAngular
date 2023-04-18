@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-=======
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
->>>>>>> Stashed changes
 import {Conductor} from "../../model/conductor";
 import {Estacion} from "../../model/estacion";
 import {ConductorService} from "../../shared/conductor.service";
@@ -25,7 +21,9 @@ export class EstacionListComponent implements OnInit, OnDestroy{
 
   selection: boolean[] = [];
 
+  estacionesSelecionadasUnicas: Estacion[] = [];
   estaciones: Estacion[] | undefined;
+
   @Input() mostrarDiv = true;
   @Input() mostrarDiv2 = false;
 
@@ -79,22 +77,15 @@ export class EstacionListComponent implements OnInit, OnDestroy{
     }
     this.router.navigate(['/estacion/list']);
   }
-  agregarEstacion(estacion: Estacion): void{
-
-  }
-<<<<<<< Updated upstream
 
   onSelectEstacion(estacion: Estacion, selection: boolean) {
     this.selectionChanged.emit(this.selection);
-    this.estacionesSelecionadas.emit(this.estaciones)
-    // if (selection == true){
-    //   this.estacionesSelecionadas?.push(estacion)
-    // } else {
-    //   this.estacionesSelecionadas.splice(this.estacionesSelecionadas?.indexOf(estacion), 1);
-    // }
-    // this.estacionesSelecionadas?.every( estacionS => estacionS = estacion)
+    if (selection == true){
+      this.estacionesSelecionadasUnicas?.push(estacion)
+    } else {
+      this.estacionesSelecionadasUnicas?.splice(this.estacionesSelecionadasUnicas?.indexOf(estacion), 1);
+    }
+    this.estacionesSelecionadas.emit(this.estacionesSelecionadasUnicas)
   }
-=======
->>>>>>> Stashed changes
 
 }

@@ -8,7 +8,7 @@ export class Trabajo {
   public ruta?: Ruta | null;
   public conductor?: Conductor | null;
 
-  public constructor(init?: Partial<Ruta>) {
+  public constructor(init?: Partial<Trabajo>) {
     Object.assign(this, init);
   }
 }

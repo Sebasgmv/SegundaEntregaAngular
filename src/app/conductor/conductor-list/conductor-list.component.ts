@@ -46,7 +46,7 @@ export class ConductorListComponent implements OnInit, OnDestroy{
   }
   editConductor(conductor: Conductor): void{
     if (conductor && conductor.id) {
-
+      this.router.navigate(['/conductor/edit', conductor.id]);
     }
   }
 

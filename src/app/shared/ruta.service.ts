@@ -24,10 +24,10 @@ export class RutaService {
   }
 
   crearRuta(ruta: Ruta): Observable<Ruta> {
-    return this.http.put<Bus>("http://localhost:8080/ruta", ruta, this.httpOptions);
+    return this.http.put<Ruta>("http://localhost:8080/ruta", ruta, this.httpOptions);
   }
   editarRuta(ruta: Ruta): Observable<Ruta> {
-    return this.http.post<Bus>("http://localhost:8080/ruta", ruta, this.httpOptions);
+    return this.http.post<Ruta>("http://localhost:8080/ruta", ruta, this.httpOptions);
   }
 
   eliminarRuta(id: number | null | undefined):Observable<any>{

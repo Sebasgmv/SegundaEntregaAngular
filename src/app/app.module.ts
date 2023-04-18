@@ -33,6 +33,7 @@ import { TrabajoCreateComponent } from './trabajo/trabajo-create/trabajo-create.
 import { TrabajoEditComponent } from './trabajo/trabajo-edit/trabajo-edit.component';
 import { TrabajoListComponent } from './trabajo/trabajo-list/trabajo-list.component';
 import { TrabajoViewComponent } from './trabajo/trabajo-view/trabajo-view.component';
+import { EstacionListRutaComponent } from './estacion/estacion-list-ruta/estacion-list-ruta.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { TrabajoViewComponent } from './trabajo/trabajo-view/trabajo-view.compon
     TrabajoEditComponent,
     TrabajoListComponent,
     TrabajoViewComponent,
+    EstacionListRutaComponent,
   ],
   imports: [
     BrowserModule,

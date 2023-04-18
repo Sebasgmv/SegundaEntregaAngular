@@ -21,6 +21,11 @@ import {EstacionEditComponent} from "./estacion/estacion-edit/estacion-edit.comp
 import {EstacionCreateComponent} from "./estacion/estacion-create/estacion-create.component";
 import {TrabajoListComponent} from "./trabajo/trabajo-list/trabajo-list.component";
 import {TrabajoViewComponent} from "./trabajo/trabajo-view/trabajo-view.component";
+import {EstacionListRutaComponent} from "./estacion/estacion-list-ruta/estacion-list-ruta.component";
+import {HorarioListComponent} from "./horario/horario-list/horario-list.component";
+import {HorarioCreateComponent} from "./horario/horario-create/horario-create.component";
+import {HorarioViewComponent} from "./horario/horario-view/horario-view.component";
+import {HorarioEditComponent} from "./horario/horario-edit/horario-edit.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -41,8 +46,13 @@ const routes: Routes = [
   { path: 'estacion/view/:id', component: EstacionViewComponent },
   { path: 'estacion/edit/:id', component: EstacionEditComponent },
   { path: 'estacion/create', component: EstacionCreateComponent },
+  { path: 'horario/list', component: HorarioListComponent , runGuardsAndResolvers: "always"},
+  { path: 'horario/view/:id', component: HorarioViewComponent },
+  { path: 'horario/edit/:id', component: HorarioEditComponent },
+  { path: 'horario/create', component: HorarioCreateComponent },
   { path: 'trabajo/list', component: TrabajoListComponent },
   { path: 'trabajo/view/:id', component: TrabajoViewComponent },
+  { path: 'estacion/list/ruta/:id', component: EstacionListRutaComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
 ];
 

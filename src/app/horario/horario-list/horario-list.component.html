@@ -1,1 +1,17 @@
-<p>horario-list works!</p>
+<div class="caja2">
+<!--  <button *ngIf="mostrarDiv" (click)="CrearHorario()">Crear Horario</button>-->
+</div>
+
+<div class="caja" >
+  <ul>
+    <li *ngFor="let horario of horarios; let i = index">
+<!--      <mat-radio-button value="1">Option 1</mat-radio-button>-->
+      <input *ngIf="mostrarDiv2"  type="checkbox"name="chkSelected" id="selected{{horario.id}}" [(ngModel)]="selection[i]" (ngModelChange)="onSelectHorario(horario, $event)" >
+      {{i}} {{horario.dias}} {{horario.horaInicio}} {{horario.horaFin}}
+<!--      <button *ngIf="mostrarDiv"  (click)="viewHorario(horario)">Ver</button>-->
+<!--      <button  *ngIf="mostrarDiv"  (click)="editHorario(horario)">Editar</button>-->
+<!--      <button *ngIf="mostrarDiv"  (click)="deleteHorario(horario)">Delete</button>-->
+    </li>
+  </ul>
+  <!--<img class="imagen" src="/assets/estacion.png">-->
+</div>
