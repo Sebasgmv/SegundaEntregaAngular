@@ -1,7 +1,7 @@
 <h2>Ruta</h2>
 
-  <button (click)="cancel()">Cancel</button>
   <button (click)="crearRuta()">Guardar</button>
+  <button (click)="cancel()">Cancel</button>
   <!--<button type="submit" [disabled]="!rutaForm.valid">Save</button>-->
 
   <!--  <label for="horario">Horario: </label>-->
@@ -23,7 +23,7 @@
     (selectionChangedHorarios)="updateCountHorarios($event)"
     (horariosSelecionados)="cargarHorariosSelecionadas($event)"
   ></app-horario-list>
-  <p>Horarios seleccionadas: {{nestaciones}}</p>
+  <p>Horarios seleccionadas: {{nhorarios}}</p>
   <li *ngFor="let horario of horariosSelec; let i = index">
     {{i}} {{horario.dias}} {{horario.horaInicio}} {{horario.horaFin}}
   </li>

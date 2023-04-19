@@ -1,30 +1,15 @@
 <h2>Ruta</h2>
 
-<!--<form [formGroup]="rutaForm" (ngSubmit)="crearRuta()">-->
+<button (click)="crearRuta()">Crear</button>
 <button (click)="cancel()">Cancel</button>
-<button (click)="crearRuta()">Save</button>
-<!--<button type="submit" [disabled]="!rutaForm.valid">Save</button>-->
 
-<!--  <label for="horario">Horario: </label>-->
-<!--  <input id="horario" type="text" formControlName="horario">-->
-
-<!--  <div *ngIf="rutaForm.controls.horario.invalid || (rutaForm.controls.horario.dirty || rutaForm.controls.horario.touched)"-->
-<!--       class="alert">-->
-
-<!--    <div *ngIf="rutaForm.controls.horario.errors?.['required']">-->
-<!--      Horario is required.-->
-<!--    </div>-->
-
-<!--  </div>-->
-
-<!--</form>-->
 <label>Rutas: </label>
 <app-horario-list
   [mostrarDiv]="false" [mostrarDiv2]="true"
   (selectionChangedHorarios)="updateCountHorarios($event)"
   (horariosSelecionados)="cargarHorariosSelecionadas($event)"
 ></app-horario-list>
-<p>Horarios seleccionadas: {{nestaciones}}</p>
+<p>Horarios seleccionadas: {{nhorarios}}</p>
 <li *ngFor="let horario of horariosSelec; let i = index">
   {{i}} {{horario.dias}} {{horario.horaInicio}} {{horario.horaFin}}
 </li>

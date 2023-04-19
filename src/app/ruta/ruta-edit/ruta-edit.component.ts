@@ -53,7 +53,7 @@ export class RutaEditComponent implements OnInit{
         ruta1.id = this.ruta.id
         ruta1.estaciones = this.estacionesSelec
         this.horariosSelec.filter(h => ruta1.horario = h)
-        this.rutaService.crearRuta(ruta1).subscribe({
+        this.rutaService.editarRuta(ruta1).subscribe({
           next: dato => console.log(dato),
           error: msg => {
             console.error("Hubo un error:");
@@ -69,7 +69,7 @@ export class RutaEditComponent implements OnInit{
   }
   updateCountHorarios(selection: boolean[]) {
     this.nhorarios = selection.filter(x => x).length;
-    console.log(selection)
+    console.log("nHorarios",selection)
   }
   cargarHorariosSelecionadas(horarios: Horario[]) {
     this.horariosSelec = horarios

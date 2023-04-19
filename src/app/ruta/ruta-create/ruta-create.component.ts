@@ -55,8 +55,9 @@ export class RutaCreateComponent implements OnInit{
       }else {
         let ruta1: Ruta = new Ruta(this.rutaForm.value);
         ruta1.estaciones = this.estacionesSelec
-        // this.horariosSelec.filter(h => ruta1.horario = h)
-        this.rutaService.editarRuta(ruta1).subscribe({
+
+        this.horariosSelec.filter(h => ruta1.horario = h)
+        this.rutaService.crearRuta(ruta1).subscribe({
           next: dato => console.log(dato),
           error: msg => {
             console.error("Hubo un error:");
