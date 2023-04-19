@@ -49,10 +49,11 @@ export class RutaEditComponent implements OnInit{
         console.log("This array is empty!")
         alert("Se requiere solo 1 horario para la ruta")
       }else {
-        let ruta1: Ruta = this.ruta;
+        let ruta1: Ruta = new Ruta();
+        ruta1.id = this.ruta.id
         ruta1.estaciones = this.estacionesSelec
-        // this.horariosSelec.filter(h => ruta1.horario = h)
-        this.rutaService.editarRuta(ruta1).subscribe({
+        this.horariosSelec.filter(h => ruta1.horario = h)
+        this.rutaService.crearRuta(ruta1).subscribe({
           next: dato => console.log(dato),
           error: msg => {
             console.error("Hubo un error:");
